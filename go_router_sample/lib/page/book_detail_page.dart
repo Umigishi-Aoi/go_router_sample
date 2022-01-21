@@ -1,4 +1,4 @@
-import 'package:go_router_sample/data/book.dart';
+import 'package:go_router_sample/model/book.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailPage extends StatelessWidget {

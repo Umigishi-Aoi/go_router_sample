@@ -1,5 +1,5 @@
-import 'package:go_router_sample/data/book.dart';
-import 'package:go_router_sample/data/book_list.dart';
+import 'package:go_router_sample/model/book.dart';
+import 'package:go_router_sample/model/book_list.dart';
 import 'package:go_router_sample/page/book_detail_page.dart';
 import 'package:flutter/material.dart';
 
