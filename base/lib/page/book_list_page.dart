@@ -1,5 +1,5 @@
-import 'package:base/data/book.dart';
-import 'package:base/data/book_list.dart';
+import 'package:base/model/book.dart';
+import 'package:base/model/book_list.dart';
 import 'package:base/page/book_detail_page.dart';
 import 'package:flutter/material.dart';
 
