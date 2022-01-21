@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:go_router_sample/page/book_list_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,10 +15,10 @@ class LogInPage extends StatelessWidget {
         child: ElevatedButton(
           child: const Text('ログイン'),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => BookListPage()),
-            );
+            //画面遷移のコード
+            context.goNamed('list');
+            //こちらでも可
+            // context.go('/list');
           },
         ),
       ),

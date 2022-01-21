@@ -1,19 +1,54 @@
+import 'package:go_router/go_router.dart';
+import 'package:go_router_sample/page/book_list_page.dart';
 import 'package:go_router_sample/page/log_in_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerDelegate: _router.routerDelegate,
+      routeInformationParser: _router.routeInformationParser,
       title: 'Book List Sample',
-      home: LogInPage(),
     );
   }
+
+  //画面の情報を定義する
+  final _router = GoRouter(
+    initialLocation: '/',
+    routes: [
+      GoRoute(
+        name: 'login',
+        path: '/',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const LogInPage(),
+        ),
+      ),
+      GoRoute(
+        name: 'list',
+        path: '/list',
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const BookListPage(),
+        ),
+      ),
+    ],
+    //遷移ページがないなどのエラーが発生した時に、このページに行く
+    errorPageBuilder: (context, state) => MaterialPage(
+      key: state.pageKey,
+      child: Scaffold(
+        body: Center(
+          child: Text(state.error.toString()),
+        ),
+      ),
+    ),
+  );
 }
