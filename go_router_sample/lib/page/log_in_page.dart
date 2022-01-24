@@ -1,5 +1,4 @@
 import 'package:go_router/go_router.dart';
-import 'package:go_router_sample/page/book_list_page.dart';
 import 'package:flutter/material.dart';
 
 class LogInPage extends StatelessWidget {
