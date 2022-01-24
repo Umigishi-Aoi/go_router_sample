@@ -4,5 +4,4 @@ class Book {
   final String author;
 
   Book({required this.id, required this.title, required this.author});
-
 }

@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                       key: state.pageKey,
                       child: Scaffold(
                           appBar: AppBar(
-                            title: Text('ページが存在しません'),
+                            title: const Text('ページが存在しません'),
                           ),
                           body: Container()),
                     );
