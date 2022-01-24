@@ -12,4 +12,12 @@ class BookList{
     return BookList._(books: [book1,book2,book3]);
   }
 
+  Book? bookFromId(String id){
+    try{
+      return books.where((element) => element.id.toString() == id).first;
+    }catch(e){
+      return null;
+    }
+  }
+
 }
