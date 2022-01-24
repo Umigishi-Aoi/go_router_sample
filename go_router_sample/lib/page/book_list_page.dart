@@ -17,14 +17,16 @@ class BookListPage extends StatelessWidget {
       body: ListView.builder(
           itemCount: bookList.books.length,
           itemBuilder: (context, index) {
-        Book book = bookList.books[index];
-        return ListTile(
-          title: Text(book.title),
-          onTap: () {
-            context.go('/list/detail/${book.id}');
-          },
-        );
-      }),
+            Book book = bookList.books[index];
+            return ListTile(
+              title: Text(book.title),
+              onTap: () {
+                context.go('/list/detail/${book.id}');
+                //こちらでも良い
+                // context.goNamed('detail',params: {'id' : book.id.toString()});
+              },
+            );
+          }),
     );
   }
 }
