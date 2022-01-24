@@ -1,13 +1,16 @@
-import 'package:go_router_sample/model/book.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:flutter/material.dart';
+import 'package:go_router_sample/model/book.dart';
+import 'package:go_router_sample/model/book_state.dart';
 
-class BookDetailPage extends StatelessWidget {
-  final Book book;
+class BookDetailPage extends ConsumerWidget {
 
-  const BookDetailPage({Key? key, required this.book}) : super(key: key);
+  const BookDetailPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    Book book = ref.watch(bookStateProvider);
     return Scaffold(
         appBar: AppBar(
           title: Text('本の詳細ページ${book.id}'),

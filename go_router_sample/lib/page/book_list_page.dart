@@ -1,13 +1,15 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router_sample/model/book.dart';
 import 'package:go_router_sample/model/book_list.dart';
+import 'package:go_router_sample/model/book_state.dart';
 import 'package:go_router_sample/page/book_detail_page.dart';
 import 'package:flutter/material.dart';
 
-class BookListPage extends StatelessWidget {
+class BookListPage extends ConsumerWidget {
   const BookListPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     BookList bookList = BookList();
     return Scaffold(
       appBar: AppBar(
@@ -20,10 +22,11 @@ class BookListPage extends StatelessWidget {
         return ListTile(
           title: Text(book.title),
           onTap: () {
+            ref.read(bookStateProvider.state).state = book;
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => BookDetailPage(book: book)),
+                  builder: (context) => const BookDetailPage()),
             );
           },
         );
